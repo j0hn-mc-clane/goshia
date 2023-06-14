@@ -12,14 +12,7 @@ Example of a run.sh file (you can specify whatever you want):
 
 case $1 in
   staging)
-    docker compose -f docker-compose.yml -f docker-compose.staging.yml -f docker-compose.workers.yml up -d
-    ;;
-  dev)
-    docker compose -f docker-compose.yml -f docker-compose.dev.yml -f docker-compose.workers.yml up -d
-    ;;
-    ;;
-  local)
-    docker compose -f docker-compose.yml -f docker-compose.dev.yml -f docker-compose.workers.yml up -d
+    docker compose up -d
     ;;
   *)
     echo "did not find environment match for $1"
@@ -28,6 +21,10 @@ esac
 
 ```
 
-To configure this app, simply copy the configuration.yml to configuration.local.yml and substitute the placeholders.
+To configure this app:
+1. Clone the repository
+2. Copy configuration.template.yml to configuration.yml and fill in your details
+3. Run sudo make, this will make sure golang is installed, folders are created and whatnot
+4. Ready to go!
 
-The application is served on port 8080 with endpoint GET /deploy.
+Deployment can be done by executing a HTTP GET request on /deploy with queryparameter named branch, specifying which branch to checkout.
