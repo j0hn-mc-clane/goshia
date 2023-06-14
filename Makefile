@@ -3,7 +3,7 @@ local: create_dirs copy_config build_goshia install_goshia init_service
 install_golang:
 	rm -rf /root/.go
 	curl -L https://git.io/vQhTU | bash
-	rm /usr/bin/go
+	rm -f /usr/bin/go
 	ln -s /root/.go/bin/go /usr/bin/go
 
 create_dirs:
