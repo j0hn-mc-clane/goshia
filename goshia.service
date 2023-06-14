@@ -1,0 +1,15 @@
+[Unit]
+Description=Goshia Auto Deploy
+ConditionPathExists=/home/goshia
+After=network.target
+
+[Service]
+Type=simple
+User=root
+WorkingDirectory=/home/goshia
+ExecStart=goshia
+Restart=on-failure
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target

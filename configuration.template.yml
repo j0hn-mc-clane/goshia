@@ -1,0 +1,10 @@
+repository:
+  url: https://<YOUR_USER_HERE>:<YOUR_TOKEN_HERE>@github.com/test/testrepo.git
+  folder: <YOUR_FOLDER_HERE>
+
+environment: <YOUR_ENVIRONMENT_HERE>
+port: <YOUR_PORT_HERE>
+
+script:
+  location: <YOUR_SCRIPT_LOCATIOIN_HERE> # Note: absolute path
+  interpreter: sh
