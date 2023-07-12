@@ -42,11 +42,19 @@ func pullRepo() {
 	fmt.Println(string(stdout))
 }
 
+func fetchRepo() {
+	fmt.Println("Running git fetch to update branch info")
+	cmd := exec.Command("git", "fetch", configuration.Config.Repository.Url)
+	cmd.Dir = configuration.Config.Repository.Folder
+	stdout, _ := cmd.CombinedOutput()
+	fmt.Println(string(stdout))
+}
+
 func cloneOrPullRepo(branch *string) {
 	fmt.Println("Running git clone")
 	stdout, _ := exec.Command("git", "clone", configuration.Config.Repository.Url, configuration.Config.Repository.Folder).CombinedOutput()
 	fmt.Println(string(stdout))
-
+	fetchRepo()
 	checkoutRepo(branch)
 	pullRepo()
 }
