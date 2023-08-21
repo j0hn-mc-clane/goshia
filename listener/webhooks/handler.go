@@ -44,7 +44,7 @@ func pullRepo() {
 
 func fetchRepo() {
 	fmt.Println("Running git fetch to update branch info")
-	cmd := exec.Command("git", "fetch", configuration.Config.Repository.Url)
+	cmd := exec.Command("git", "fetch")
 	cmd.Dir = configuration.Config.Repository.Folder
 	stdout, _ := cmd.CombinedOutput()
 	fmt.Println(string(stdout))
